@@ -11,15 +11,20 @@ import AVKit
 /// ViewModel managing the state and behavior of the video player
 final class VideoPlayerViewModel: ObservableObject {
     
-    @Published private var videos = [Video]()
-    @Published private var currentVideoIndex: Int = 0
+    private let isMockRequest: Bool
     
-    @Published var isPlaying: Bool = false
-    @Published var isPreviousButtonDisabled: Bool = true
-    @Published var isNextButtonDisabled: Bool = false
-    @Published var errorMessage: String?
+    @Published private(set) var videos = [Video]()
+    @Published private(set) var currentVideoIndex: Int = 0
+    @Published private(set) var isPlaying: Bool = false
+    @Published private(set) var isPreviousButtonDisabled: Bool = true
+    @Published private(set) var isNextButtonDisabled: Bool = false
+    @Published private(set) var errorMessage: String?
     
-    @State var player = AVPlayer()
+    @State private(set) var player = AVPlayer()
+    
+    init(isMockRequest: Bool) {
+        self.isMockRequest = isMockRequest
+    }
         
 }
 
@@ -34,8 +39,8 @@ extension VideoPlayerViewModel {
         return videos[safe: currentVideoIndex]
     }
     
-    func progressViewAppeared() {
-        fetchVideos()
+    func progressViewAppeared(result: VideoDataHandler.MockResult = .notApplicable) {
+        fetchVideos(result: result)
     }
     
     func videoPlayerAppeared() {
@@ -64,8 +69,8 @@ extension VideoPlayerViewModel {
 // MARK: - Private Helpers
 private extension VideoPlayerViewModel {
     
-    func fetchVideos() {
-        VideoDataHandler.shared.fetchVideos { [weak self] (videos, errorMessage) in
+    func fetchVideos(result: VideoDataHandler.MockResult) {
+        VideoDataHandler.shared.fetchVideos(isMockRequest: isMockRequest, result: result) { [weak self] (videos, errorMessage) in
             self?.videos = self?.sortVideos(videos) ?? []
             self?.currentVideoIndex = 0
             self?.isPreviousButtonDisabled = true

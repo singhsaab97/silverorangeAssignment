@@ -10,7 +10,7 @@ import MarkdownUI
 
 struct ContentView: View {
     
-    @StateObject private var viewModel = VideoPlayerViewModel()
+    @StateObject private var viewModel = VideoPlayerViewModel(isMockRequest: false)
     
     var body: some View {
         NavigationView {

@@ -25,6 +25,7 @@
 		7C9899F02B537FBA00F02602 /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899EF2B537FBA00F02602 /* PlayerControlsView.swift */; };
 		7C9899F22B53803700F02602 /* PlayerControlButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899F12B53803700F02602 /* PlayerControlButtonStyle.swift */; };
 		7C9899F42B5384D900F02602 /* PlayerControlsTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899F32B5384D900F02602 /* PlayerControlsTimer.swift */; };
+		7CE9CDEF2B549F3D00B76DDD /* Videos.json in Resources */ = {isa = PBXBuildFile; fileRef = 7CE9CDEE2B549F3D00B76DDD /* Videos.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,7 @@
 		7C9899EF2B537FBA00F02602 /* PlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
 		7C9899F12B53803700F02602 /* PlayerControlButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlButtonStyle.swift; sourceTree = "<group>"; };
 		7C9899F32B5384D900F02602 /* PlayerControlsTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsTimer.swift; sourceTree = "<group>"; };
+		7CE9CDEE2B549F3D00B76DDD /* Videos.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Videos.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +175,7 @@
 				7C9899DF2B536C7E00F02602 /* Constants.swift */,
 				7C9899F12B53803700F02602 /* PlayerControlButtonStyle.swift */,
 				7C9899F32B5384D900F02602 /* PlayerControlsTimer.swift */,
+				7CE9CDEE2B549F3D00B76DDD /* Videos.json */,
 				3AF67A5F25A64DBF00D360A7 /* Assets.xcassets */,
 			);
 			path = Utility;
@@ -308,6 +311,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3AF67A6325A64DBF00D360A7 /* Preview Assets.xcassets in Resources */,
+				7CE9CDEF2B549F3D00B76DDD /* Videos.json in Resources */,
 				3AF67A6025A64DBF00D360A7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,7 +549,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VideoPlayerSwiftUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -566,7 +570,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = VideoPlayerSwiftUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

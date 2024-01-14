@@ -9,25 +9,59 @@ import XCTest
 @testable import VideoPlayerSwiftUI
 
 class VideoPlayerSwiftUITests: XCTestCase {
+    
+    private var viewModel: VideoPlayerViewModel!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        try super.setUpWithError()
+        viewModel = VideoPlayerViewModel(isMockRequest: true)
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        try super.tearDownWithError()
+        viewModel = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInitialVideoPlayerState() {
+        XCTAssertNil(viewModel.currentVideo)
+        XCTAssertTrue(viewModel.isPreviousButtonDisabled)
+        XCTAssertFalse(viewModel.isNextButtonDisabled)
     }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    
+    func testVideosFetchedSuccess() {
+        viewModel.progressViewAppeared(result: .success)
+        XCTAssertEqual(viewModel.videos.count, 2)
+        XCTAssertNotNil(viewModel.currentVideo)
+        XCTAssertNil(viewModel.errorMessage)
     }
-
+    
+    func testVideosFetchedFailure() {
+        viewModel.progressViewAppeared(result: .failure)
+        XCTAssertTrue(viewModel.videos.isEmpty)
+        XCTAssertNil(viewModel.currentVideo)
+        XCTAssertNotNil(viewModel.errorMessage)
+    }
+    
+    func testPreviousAndNextButtonActions() {
+        viewModel.progressViewAppeared(result: .success)
+        XCTAssertTrue(viewModel.isPreviousButtonDisabled)
+        XCTAssertFalse(viewModel.isNextButtonDisabled)
+        viewModel.nextButtonTapped()
+        XCTAssertFalse(viewModel.isPreviousButtonDisabled)
+        XCTAssertFalse(viewModel.isPlaying)
+        XCTAssertTrue(viewModel.isNextButtonDisabled)
+        viewModel.previousButtonTapped()
+        XCTAssertTrue(viewModel.isPreviousButtonDisabled)
+        XCTAssertFalse(viewModel.isPlaying)
+        XCTAssertFalse(viewModel.isNextButtonDisabled)
+    }
+    
+    func testPlayPauseButtonAction() {
+        XCTAssertFalse(viewModel.isPlaying)
+        viewModel.playPauseButtonTapped()
+        XCTAssertTrue(viewModel.isPlaying)
+        viewModel.playPauseButtonTapped()
+        XCTAssertFalse(viewModel.isPlaying)
+    }
+    
 }

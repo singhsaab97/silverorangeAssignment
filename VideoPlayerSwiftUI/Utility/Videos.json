@@ -1,0 +1,22 @@
+[
+    {
+        "id": "6ec246b1-ad09-4e03-8573-21e2e779856c",
+        "title": "Test video 1",
+        "hlsURL": "https://d140vvwqovffrf.cloudfront.net/media/5e87b9a811599/hls/index.m3u8",
+        "fullURL": "https://d140vvwqovffrf.cloudfront.net/media/5e87b9a811599/full/720.mp4",
+        "description": "Test description 1",
+        "author": {
+            "name": "Abhijit"
+        }
+    },
+    {
+        "id": "2f1fe9c0-bdbf-4104-bee2-3c0ec514436f",
+        "title": "Test video 2",
+        "hlsURL": "https://d140vvwqovffrf.cloudfront.net/media/5e852de33c8e4/hls/index.m3u8",
+        "fullURL": "https://d140vvwqovffrf.cloudfront.net/media/5e852de33c8e4/720.mp4",
+        "description": "Test description 2",
+        "author": {
+            "name": "Singh"
+        }
+    }
+]
