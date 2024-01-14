@@ -17,7 +17,7 @@ struct VideoPlayerView: View {
         ZStack {
             VideoPlayer(player: viewModel.player)
             
-            // TODO: - Add player controls view on top of the video player
+            PlayerControlsView(viewModel: viewModel)
         }
     }
     
