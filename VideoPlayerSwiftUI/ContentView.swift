@@ -20,6 +20,19 @@ struct ContentView: View {
                         .onAppear {
                             viewModel.progressViewAppeared()
                         }
+                } else if let errorMessage = viewModel.errorMessage {
+                    Text(errorMessage)
+                        .foregroundColor(.white)
+                        .font(.headline)
+                        .fontWeight(.bold)
+                        .padding()
+                        .background(Color.red)
+                        .multilineTextAlignment(.center)
+                        .cornerRadius(8)
+                        .overlay(
+                            RoundedRectangle(cornerRadius: 8)
+                                .stroke(Color.white, lineWidth: 2)
+                        )
                 } else {
                     // TODO: - Create a standalone video player view
                 }

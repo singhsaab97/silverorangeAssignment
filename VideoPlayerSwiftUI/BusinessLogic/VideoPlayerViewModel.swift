@@ -11,6 +11,8 @@ final class VideoPlayerViewModel: ObservableObject {
     
     @Published private var videos = [Video]()
     @Published private var currentVideoIndex: Int = 0
+    
+    @Published var errorMessage: String?
         
 }
 
@@ -18,16 +20,15 @@ final class VideoPlayerViewModel: ObservableObject {
 extension VideoPlayerViewModel {
     
     var currentVideo: Video? {
-        // TODO: - Return the video at current index
-        return nil
+        return videos[safe: currentVideoIndex]
     }
     
     func progressViewAppeared() {
-        // TODO: - Prepare to play the video track
+        fetchVideos()
     }
     
     func videoPlayerAppeared() {
-        fetchVideos()
+        // TODO: - Prepare to play the video track
     }
     
     func previousButtonTapped() {
@@ -48,7 +49,27 @@ extension VideoPlayerViewModel {
 private extension VideoPlayerViewModel {
     
     func fetchVideos() {
-        // TODO: - Make a network call to fetch videos from the server
+        VideoDataHandler.shared.fetchVideos { [weak self] (videos, errorMessage) in
+            self?.videos = self?.sortVideos(videos) ?? []
+            self?.currentVideoIndex = 0
+            if let message = errorMessage {
+                self?.errorMessage = "\(Constants.errorText): \(message)"
+            }
+        }
+    }
+    
+    // Method to sort videos based on their publish date
+    func sortVideos(_ videos: [Video]) -> [Video] {
+        let dateFormatter = ISO8601DateFormatter()
+        dateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        return videos.sorted(by: { (current, next) in
+            guard let currentDate = current.publishDate,
+                  let nextDate = next.publishDate else { return false }
+            let currentVideoDate = dateFormatter.date(from: currentDate) ?? Date()
+            let nextVideoDate = dateFormatter.date(from: nextDate) ?? Date()
+            // Sorted in the order of most recently published
+            return currentVideoDate > nextVideoDate
+        })
     }
     
 }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,10 @@
 		3AF67A7925A64DBF00D360A7 /* VideoPlayerSwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AF67A7825A64DBF00D360A7 /* VideoPlayerSwiftUIUITests.swift */; };
 		7C9899D72B53696300F02602 /* VideoPlayerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899D62B53696300F02602 /* VideoPlayerViewModel.swift */; };
 		7C9899DA2B5369A600F02602 /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899D92B5369A600F02602 /* VideoModel.swift */; };
+		7C9899DD2B536C4000F02602 /* VideoDataHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899DC2B536C4000F02602 /* VideoDataHandler.swift */; };
+		7C9899E02B536C7E00F02602 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899DF2B536C7E00F02602 /* Constants.swift */; };
+		7C9899E32B536CE500F02602 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9899E22B536CE500F02602 /* Alamofire */; };
+		7C9899E62B5370E900F02602 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899E52B5370E900F02602 /* Array+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,9 @@
 		3AF67A7A25A64DBF00D360A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7C9899D62B53696300F02602 /* VideoPlayerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerViewModel.swift; sourceTree = "<group>"; };
 		7C9899D92B5369A600F02602 /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
+		7C9899DC2B536C4000F02602 /* VideoDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDataHandler.swift; sourceTree = "<group>"; };
+		7C9899DF2B536C7E00F02602 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7C9899E52B5370E900F02602 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C9899E32B536CE500F02602 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,7 +110,8 @@
 				3AF67A5B25A64DBD00D360A7 /* VideoPlayerSwiftUIApp.swift */,
 				3AF67A5D25A64DBD00D360A7 /* ContentView.swift */,
 				7C9899D82B53696E00F02602 /* BusinessLogic */,
-				3AF67A5F25A64DBF00D360A7 /* Assets.xcassets */,
+				7C9899E42B5370C700F02602 /* Extensions */,
+				7C9899DE2B536C6F00F02602 /* Utility */,
 				3AF67A6425A64DBF00D360A7 /* Info.plist */,
 				3AF67A6125A64DBF00D360A7 /* Preview Content */,
 			);
@@ -140,8 +149,26 @@
 			children = (
 				7C9899D62B53696300F02602 /* VideoPlayerViewModel.swift */,
 				7C9899D92B5369A600F02602 /* VideoModel.swift */,
+				7C9899DC2B536C4000F02602 /* VideoDataHandler.swift */,
 			);
 			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
+		7C9899DE2B536C6F00F02602 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				7C9899DF2B536C7E00F02602 /* Constants.swift */,
+				3AF67A5F25A64DBF00D360A7 /* Assets.xcassets */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		7C9899E42B5370C700F02602 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7C9899E52B5370E900F02602 /* Array+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,6 +187,9 @@
 			dependencies = (
 			);
 			name = VideoPlayerSwiftUI;
+			packageProductDependencies = (
+				7C9899E22B536CE500F02602 /* Alamofire */,
+			);
 			productName = VideoPlayerSwiftUI;
 			productReference = 3AF67A5825A64DBD00D360A7 /* VideoPlayerSwiftUI.app */;
 			productType = "com.apple.product-type.application";
@@ -231,6 +261,9 @@
 				Base,
 			);
 			mainGroup = 3AF67A4F25A64DBD00D360A7;
+			packageReferences = (
+				7C9899E12B536CE500F02602 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 3AF67A5925A64DBD00D360A7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -276,7 +309,10 @@
 				7C9899D72B53696300F02602 /* VideoPlayerViewModel.swift in Sources */,
 				3AF67A5E25A64DBD00D360A7 /* ContentView.swift in Sources */,
 				3AF67A5C25A64DBD00D360A7 /* VideoPlayerSwiftUIApp.swift in Sources */,
+				7C9899E62B5370E900F02602 /* Array+Extensions.swift in Sources */,
+				7C9899DD2B536C4000F02602 /* VideoDataHandler.swift in Sources */,
 				7C9899DA2B5369A600F02602 /* VideoModel.swift in Sources */,
+				7C9899E02B536C7E00F02602 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +626,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C9899E12B536CE500F02602 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C9899E22B536CE500F02602 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C9899E12B536CE500F02602 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3AF67A5025A64DBD00D360A7 /* Project object */;
 }
