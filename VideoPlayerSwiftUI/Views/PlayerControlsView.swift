@@ -18,11 +18,11 @@ struct PlayerControlsView: View {
                 Image("previous")
                     .frame(width: 40, height: 40)
             }
+            .disabled(viewModel.isPreviousButtonDisabled)
             .buttonStyle(PlayerControlButtonStyle())
             
             Button(action: viewModel.playPauseButtonTapped) {
-                // TODO: - Change the image of the button based on video player's state
-                Image("play")
+                Image(viewModel.isPlaying ? "pause" : "play")
                     .frame(width: 60, height: 60)
             }
             .buttonStyle(PlayerControlButtonStyle())
@@ -31,6 +31,7 @@ struct PlayerControlsView: View {
                 Image("next")
                     .frame(width: 40, height: 40)
             }
+            .disabled(viewModel.isNextButtonDisabled)
             .buttonStyle(PlayerControlButtonStyle())
         }
     }

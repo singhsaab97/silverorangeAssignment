@@ -13,6 +13,9 @@ final class VideoPlayerViewModel: ObservableObject {
     @Published private var videos = [Video]()
     @Published private var currentVideoIndex: Int = 0
     
+    @Published var isPlaying: Bool = false
+    @Published var isPreviousButtonDisabled: Bool = true
+    @Published var isNextButtonDisabled: Bool = false
     @Published var errorMessage: String?
     
     @State var player = AVPlayer()
@@ -35,19 +38,24 @@ extension VideoPlayerViewModel {
     }
     
     func videoPlayerAppeared() {
-        // TODO: - Prepare to play the video track
+        prepareToPlay()
     }
     
     func previousButtonTapped() {
-        // TODO
+        guard currentVideoIndex > 0 else { return }
+        currentVideoIndex -= 1
+        prepareToPlay()
     }
     
     func playPauseButtonTapped() {
-        // TODO
+        isPlaying.toggle()
+        isPlaying ? player.play() : player.pause()
     }
     
     func nextButtonTapped() {
-        // TODO
+        guard currentVideoIndex < videos.count - 1 else { return }
+        currentVideoIndex += 1
+        prepareToPlay()
     }
     
 }
@@ -59,6 +67,8 @@ private extension VideoPlayerViewModel {
         VideoDataHandler.shared.fetchVideos { [weak self] (videos, errorMessage) in
             self?.videos = self?.sortVideos(videos) ?? []
             self?.currentVideoIndex = 0
+            self?.isPreviousButtonDisabled = true
+            self?.isNextButtonDisabled = false
             if let message = errorMessage {
                 self?.errorMessage = "\(Constants.errorText): \(message)"
             }
@@ -77,6 +87,15 @@ private extension VideoPlayerViewModel {
             // Sorted in the order of most recently published
             return currentVideoDate > nextVideoDate
         })
+    }
+    
+    func prepareToPlay() {
+        guard let playableUrl = currentVideo?.playableUrl else { return }
+        isPlaying = false
+        isPreviousButtonDisabled = currentVideoIndex == 0
+        isNextButtonDisabled = currentVideoIndex == videos.count - 1
+        player.replaceCurrentItem(with: AVPlayerItem(url: playableUrl))
+        player.pause()
     }
     
 }
