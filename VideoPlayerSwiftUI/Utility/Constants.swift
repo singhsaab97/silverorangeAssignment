@@ -10,6 +10,7 @@ import Foundation
 /// Struct to encapsulate hardcoded constants used across the app
 struct Constants {
     
+    static let videoPlayerTitle = "Video Player"
     static let apiUrl = URL(string: "http://localhost:4000/videos")
     static let invalidApiEndpointMessage = "Shame on us! We'll get the server running again soon"
     static let noVideosFoundMessage = "No videos available"

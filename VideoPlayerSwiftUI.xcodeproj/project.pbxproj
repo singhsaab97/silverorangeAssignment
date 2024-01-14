@@ -19,6 +19,9 @@
 		7C9899E02B536C7E00F02602 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899DF2B536C7E00F02602 /* Constants.swift */; };
 		7C9899E32B536CE500F02602 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9899E22B536CE500F02602 /* Alamofire */; };
 		7C9899E62B5370E900F02602 /* Array+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899E52B5370E900F02602 /* Array+Extensions.swift */; };
+		7C9899E92B5374DF00F02602 /* VideoPlayerParentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899E82B5374DF00F02602 /* VideoPlayerParentView.swift */; };
+		7C9899EB2B53752B00F02602 /* VideoPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899EA2B53752B00F02602 /* VideoPlayerView.swift */; };
+		7C9899EE2B5376FC00F02602 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9899ED2B5376FC00F02602 /* MarkdownUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,8 @@
 		7C9899DC2B536C4000F02602 /* VideoDataHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoDataHandler.swift; sourceTree = "<group>"; };
 		7C9899DF2B536C7E00F02602 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7C9899E52B5370E900F02602 /* Array+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extensions.swift"; sourceTree = "<group>"; };
+		7C9899E82B5374DF00F02602 /* VideoPlayerParentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerParentView.swift; sourceTree = "<group>"; };
+		7C9899EA2B53752B00F02602 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +69,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7C9899E32B536CE500F02602 /* Alamofire in Frameworks */,
+				7C9899EE2B5376FC00F02602 /* MarkdownUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +115,7 @@
 			children = (
 				3AF67A5B25A64DBD00D360A7 /* VideoPlayerSwiftUIApp.swift */,
 				3AF67A5D25A64DBD00D360A7 /* ContentView.swift */,
+				7C9899E72B5374CD00F02602 /* Views */,
 				7C9899D82B53696E00F02602 /* BusinessLogic */,
 				7C9899E42B5370C700F02602 /* Extensions */,
 				7C9899DE2B536C6F00F02602 /* Utility */,
@@ -171,6 +178,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7C9899E72B5374CD00F02602 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				7C9899E82B5374DF00F02602 /* VideoPlayerParentView.swift */,
+				7C9899EA2B53752B00F02602 /* VideoPlayerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +205,7 @@
 			name = VideoPlayerSwiftUI;
 			packageProductDependencies = (
 				7C9899E22B536CE500F02602 /* Alamofire */,
+				7C9899ED2B5376FC00F02602 /* MarkdownUI */,
 			);
 			productName = VideoPlayerSwiftUI;
 			productReference = 3AF67A5825A64DBD00D360A7 /* VideoPlayerSwiftUI.app */;
@@ -263,6 +280,7 @@
 			mainGroup = 3AF67A4F25A64DBD00D360A7;
 			packageReferences = (
 				7C9899E12B536CE500F02602 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7C9899EC2B5376FC00F02602 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */,
 			);
 			productRefGroup = 3AF67A5925A64DBD00D360A7 /* Products */;
 			projectDirPath = "";
@@ -311,8 +329,10 @@
 				3AF67A5C25A64DBD00D360A7 /* VideoPlayerSwiftUIApp.swift in Sources */,
 				7C9899E62B5370E900F02602 /* Array+Extensions.swift in Sources */,
 				7C9899DD2B536C4000F02602 /* VideoDataHandler.swift in Sources */,
+				7C9899EB2B53752B00F02602 /* VideoPlayerView.swift in Sources */,
 				7C9899DA2B5369A600F02602 /* VideoModel.swift in Sources */,
 				7C9899E02B536C7E00F02602 /* Constants.swift in Sources */,
+				7C9899E92B5374DF00F02602 /* VideoPlayerParentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -454,7 +474,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -473,7 +493,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VideoPlayerSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = VideoPlayerSwiftUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,7 +514,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"VideoPlayerSwiftUI/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = VideoPlayerSwiftUI/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -636,6 +656,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		7C9899EC2B5376FC00F02602 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/gonzalezreal/swift-markdown-ui.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -643,6 +671,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 7C9899E12B536CE500F02602 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		7C9899ED2B5376FC00F02602 /* MarkdownUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C9899EC2B5376FC00F02602 /* XCRemoteSwiftPackageReference "swift-markdown-ui" */;
+			productName = MarkdownUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

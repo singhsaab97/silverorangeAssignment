@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MarkdownUI
 
 struct ContentView: View {
     
@@ -34,7 +35,34 @@ struct ContentView: View {
                                 .stroke(Color.white, lineWidth: 2)
                         )
                 } else {
-                    // TODO: - Create a standalone video player view
+                    VideoPlayerParentView(viewModel: viewModel)
+                        .onAppear {
+                            viewModel.videoPlayerAppeared()
+                        }
+                        .navigationBarTitle(
+                            viewModel.navigationTitle,
+                            displayMode: .inline
+                        )
+                        .frame(height: 250)
+                    
+                    if let video = viewModel.currentVideo {
+                        ScrollView {
+                            VStack(alignment: .center, spacing: 16) {
+                                Text(video.title)
+                                    .font(.title2)
+                                    .fontWeight(.bold)
+                                
+                                Text(video.author.name)
+                                    .font(.headline)
+                                    .fontWeight(.bold)
+                                    .foregroundColor(Color.gray)
+                                
+                                Markdown(video.description ?? String())
+                            }
+                            .padding([.leading, .trailing], 10)
+                        }
+                        .padding()
+                    }
                 }
             }
         }

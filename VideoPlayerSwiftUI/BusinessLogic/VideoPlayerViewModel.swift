@@ -5,7 +5,8 @@
 //  Created by Abhijit Singh on 13/01/24.
 //
 
-import Foundation
+import SwiftUI
+import AVKit
 
 final class VideoPlayerViewModel: ObservableObject {
     
@@ -13,11 +14,17 @@ final class VideoPlayerViewModel: ObservableObject {
     @Published private var currentVideoIndex: Int = 0
     
     @Published var errorMessage: String?
+    
+    @State var player = AVPlayer()
         
 }
 
 // MARK: - Exposed Helpers
 extension VideoPlayerViewModel {
+    
+    var navigationTitle: String {
+        return Constants.videoPlayerTitle
+    }
     
     var currentVideo: Video? {
         return videos[safe: currentVideoIndex]
