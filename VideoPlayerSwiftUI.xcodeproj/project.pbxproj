@@ -24,6 +24,7 @@
 		7C9899EE2B5376FC00F02602 /* MarkdownUI in Frameworks */ = {isa = PBXBuildFile; productRef = 7C9899ED2B5376FC00F02602 /* MarkdownUI */; };
 		7C9899F02B537FBA00F02602 /* PlayerControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899EF2B537FBA00F02602 /* PlayerControlsView.swift */; };
 		7C9899F22B53803700F02602 /* PlayerControlButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899F12B53803700F02602 /* PlayerControlButtonStyle.swift */; };
+		7C9899F42B5384D900F02602 /* PlayerControlsTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C9899F32B5384D900F02602 /* PlayerControlsTimer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		7C9899EA2B53752B00F02602 /* VideoPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPlayerView.swift; sourceTree = "<group>"; };
 		7C9899EF2B537FBA00F02602 /* PlayerControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsView.swift; sourceTree = "<group>"; };
 		7C9899F12B53803700F02602 /* PlayerControlButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlButtonStyle.swift; sourceTree = "<group>"; };
+		7C9899F32B5384D900F02602 /* PlayerControlsTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControlsTimer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				7C9899DF2B536C7E00F02602 /* Constants.swift */,
 				7C9899F12B53803700F02602 /* PlayerControlButtonStyle.swift */,
+				7C9899F32B5384D900F02602 /* PlayerControlsTimer.swift */,
 				3AF67A5F25A64DBF00D360A7 /* Assets.xcassets */,
 			);
 			path = Utility;
@@ -340,6 +343,7 @@
 				7C9899F22B53803700F02602 /* PlayerControlButtonStyle.swift in Sources */,
 				7C9899DA2B5369A600F02602 /* VideoModel.swift in Sources */,
 				7C9899E02B536C7E00F02602 /* Constants.swift in Sources */,
+				7C9899F42B5384D900F02602 /* PlayerControlsTimer.swift in Sources */,
 				7C9899E92B5374DF00F02602 /* VideoPlayerParentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

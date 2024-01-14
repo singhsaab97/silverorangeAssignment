@@ -15,5 +15,6 @@ struct Constants {
     static let invalidApiEndpointMessage = "Shame on us! We'll get the server running again soon"
     static let noVideosFoundMessage = "No videos available"
     static let errorText = "Error"
+    static let playerControlsFadeInterval: TimeInterval = 5
     
 }

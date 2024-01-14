@@ -16,12 +16,14 @@ struct ContentView: View {
         NavigationView {
             VStack {
                 if viewModel.currentVideo == nil {
+                    // Display a progress view while fetching videos
                     ProgressView()
                         .progressViewStyle(CircularProgressViewStyle())
                         .onAppear {
                             viewModel.progressViewAppeared()
                         }
                 } else if let errorMessage = viewModel.errorMessage {
+                    // Display an error message if fetching videos fails
                     Text(errorMessage)
                         .foregroundColor(.white)
                         .font(.headline)
@@ -35,6 +37,7 @@ struct ContentView: View {
                                 .stroke(Color.white, lineWidth: 2)
                         )
                 } else {
+                    // Display the video player and related information
                     VideoPlayerParentView(viewModel: viewModel)
                         .onAppear {
                             viewModel.videoPlayerAppeared()

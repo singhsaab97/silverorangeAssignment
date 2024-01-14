@@ -12,6 +12,8 @@ struct PlayerControlsView: View {
     
     @StateObject var viewModel: VideoPlayerViewModel
     
+    @Binding var opacity: Double
+    
     var body: some View {
         HStack(spacing: 30) {
             Button(action: viewModel.previousButtonTapped) {
@@ -34,6 +36,7 @@ struct PlayerControlsView: View {
             .disabled(viewModel.isNextButtonDisabled)
             .buttonStyle(PlayerControlButtonStyle())
         }
+        .opacity(opacity)
     }
     
 }

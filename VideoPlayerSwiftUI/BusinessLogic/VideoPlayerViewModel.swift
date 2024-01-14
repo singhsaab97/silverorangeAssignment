@@ -8,6 +8,7 @@
 import SwiftUI
 import AVKit
 
+/// ViewModel managing the state and behavior of the video player
 final class VideoPlayerViewModel: ObservableObject {
     
     @Published private var videos = [Video]()
@@ -89,10 +90,13 @@ private extension VideoPlayerViewModel {
         })
     }
     
+    // Prepare the player for playback
     func prepareToPlay() {
         guard let playableUrl = currentVideo?.playableUrl else { return }
         isPlaying = false
+        // Disable the previous button at the start of list
         isPreviousButtonDisabled = currentVideoIndex == 0
+        // Disable the next button at the end of list
         isNextButtonDisabled = currentVideoIndex == videos.count - 1
         player.replaceCurrentItem(with: AVPlayerItem(url: playableUrl))
         player.pause()
